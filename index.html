@@ -695,6 +695,163 @@
     .cmp-card{ padding:34px 22px 30px; }
     .process-card{ border-radius:24px; }
   }
+
+  /* Fizzy Fiber vs. Everyday Foods comparison */
+  .fiber-compare-box{
+    background:#ffffff;
+    border:1.5px solid var(--line);
+    border-radius:32px;
+    padding:44px 38px;
+    margin-bottom:48px;
+    box-shadow:0 24px 48px -18px rgba(13,57,57,0.08);
+    position:relative;
+    overflow:hidden;
+  }
+  .compare-tabs-wrap{
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+  .compare-tab{
+    background:var(--cream);
+    border:1.5px solid var(--line);
+    color:var(--ink);
+    padding:10px 18px;
+    border-radius:100px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:all .25s ease;
+  }
+  .compare-tab:hover{
+    border-color:var(--ink);
+    transform:translateY(-2px);
+  }
+  .compare-tab.active{
+    background:var(--ink);
+    color:var(--cream);
+    border-color:var(--ink);
+    box-shadow:0 6px 16px -4px rgba(13,57,57,0.3);
+  }
+
+  .compare-stage{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    align-items:stretch;
+  }
+  .compare-card{
+    border-radius:24px;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    transition:all .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .compare-card.hero-product{
+    background:linear-gradient(145deg, #0D3939 0%, #082626 100%);
+    color:var(--cream);
+    border:1px solid rgba(255,255,255,0.12);
+  }
+  .compare-card.target-food{
+    background:var(--cream);
+    border:1.5px solid var(--line);
+    color:var(--ink);
+  }
+  .cc-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 14px; border-radius:100px;
+    font-family:'Space Mono', monospace; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:0.06em;
+    margin-bottom:18px; width:fit-content;
+  }
+  .hero-product .cc-badge{
+    background:rgba(198,226,61,0.2); color:var(--lime); border:1px solid rgba(198,226,61,0.4);
+  }
+  .target-food .cc-badge{
+    background:rgba(13,57,57,0.06); color:var(--ink-soft); border:1px solid var(--line);
+  }
+  .cc-title{ font-size:26px; margin-bottom:8px; font-family:'Fredoka', sans-serif; }
+  .cc-sub{ font-size:14px; opacity:0.85; line-height:1.55; margin-bottom:24px; min-height:44px; }
+
+  .cc-stat-highlight{
+    margin-top:auto;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.14);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+  }
+  .target-food .cc-stat-highlight{
+    border-top-color:var(--line);
+  }
+  .cc-fiber-val{
+    font-family:'Fredoka', sans-serif; font-size:42px; font-weight:700; line-height:1;
+  }
+  .cc-fiber-unit{ font-size:16px; font-weight:500; font-family:'Space Grotesk'; opacity:0.8; }
+  .cc-pill-tag{
+    font-size:12.5px; font-family:'Space Mono'; font-weight:700;
+    padding:6px 14px; border-radius:100px;
+  }
+  .hero-product .cc-pill-tag{ background:var(--mango); color:var(--ink); }
+  .target-food .cc-pill-tag{ background:var(--cream-2); color:var(--ink); border:1px solid var(--line); }
+
+  /* Animated Fiber Meter Bar */
+  .fiber-meter-track{
+    height:12px; background:rgba(0,0,0,0.12); border-radius:100px;
+    overflow:hidden; margin:16px 0 10px; position:relative;
+  }
+  .hero-product .fiber-meter-track{ background:rgba(255,255,255,0.14); }
+  .fiber-meter-fill{
+    height:100%; border-radius:100px; width:0%;
+    transition:width 0.8s cubic-bezier(.2,.8,.2,1), background 0.5s ease;
+  }
+  .hero-product .fiber-meter-fill{
+    background:linear-gradient(90deg, var(--lime), var(--mango));
+    box-shadow:0 0 14px rgba(198,226,61,0.5);
+  }
+  .target-food .fiber-meter-fill{
+    background:var(--gold);
+  }
+
+  /* Comparison Quick Matrix */
+  .compare-quick-row{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:24px;
+  }
+  .quick-comp-item{
+    background:var(--cream); border:1px solid var(--line); border-radius:20px;
+    padding:20px 16px; text-align:center;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s;
+    cursor:pointer;
+  }
+  .quick-comp-item:hover{
+    transform:translateY(-4px); border-color:var(--ink);
+    box-shadow:0 14px 28px -12px rgba(13,57,57,0.16);
+  }
+  .quick-comp-icon{ font-size:28px; display:block; margin-bottom:8px; }
+  .quick-comp-item h4{ font-family:'Fredoka'; font-size:16px; color:var(--ink); margin-bottom:4px; }
+  .quick-comp-item p{ font-size:12.5px; color:var(--ink-soft); line-height:1.45; }
+
+  @media (max-width:1080px){
+    .compare-stage{ grid-template-columns:1fr; }
+    .compare-quick-row{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:860px){
+    .compare-stage{ grid-template-columns:1fr; }
+    .compare-quick-row{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:620px){
+    .compare-quick-row{ grid-template-columns:1fr; }
+    .fiber-compare-box{ padding:26px 18px; border-radius:24px; }
+    .compare-card{ padding:24px 18px; }
+    .cc-title{ font-size:22px; }
+    .cc-fiber-val{ font-size:34px; }
+    .compare-tabs-wrap{ gap:8px; }
+    .compare-tab{ padding:8px 14px; font-size:13px; }
+  }
 </style>
 </head>
 <body>
@@ -871,6 +1028,102 @@
       <h2>What 5 grams a day does</h2>
       <p class="lede" style="margin:18px auto 0; color:var(--ink-soft); font-size:16px; line-height:1.6;">Psyllium husk is one of the most-studied soluble fibers there is. Here's the short version.</p>
     </div>
+
+    <!-- Animated Food Fiber Comparison Visualizer -->
+    <div class="fiber-compare-box reveal">
+      <div style="text-align:center; max-width:640px; margin:0 auto 28px;">
+        <span class="mono" style="color:var(--gold-dark); font-size:11px; letter-spacing:0.12em; font-weight:700;">LIVE FIBER EQUIVALENCY</span>
+        <h3 style="font-size:clamp(22px, 3.2vw, 32px); margin:8px 0 10px; color:var(--ink);">Fizzy Fiber vs. Everyday Foods</h3>
+        <p style="font-size:14.5px; color:var(--ink-soft); line-height:1.5;">See how 1 single fizzy sachet compares to plates of whole foods in fiber density, calories, and convenience.</p>
+      </div>
+
+      <!-- Food Switcher Tabs -->
+      <div class="compare-tabs-wrap" id="compareTabs">
+        <button class="compare-tab active" data-food="spinach"><span>🥬</span> Spinach (3.5 Cups)</button>
+        <button class="compare-tab" data-food="apples"><span>🍎</span> 2 Whole Apples</button>
+        <button class="compare-tab" data-food="broccoli"><span>🥦</span> Broccoli (2.5 Cups)</button>
+        <button class="compare-tab" data-food="oats"><span>🥣</span> Oatmeal (2.5 Bowls)</button>
+        <button class="compare-tab" data-food="carrots"><span>🥕</span> 4 Whole Carrots</button>
+      </div>
+
+      <!-- Comparison Stage (Side-by-Side Live Card) -->
+      <div class="compare-stage" id="compareStage">
+        <!-- Product Card -->
+        <div class="compare-card hero-product">
+          <div class="cc-badge">✨ 1 Sachet ATLYF</div>
+          <h4 class="cc-title">Fizzy Fiber Glass</h4>
+          <p class="cc-sub">100% soluble organic prebiotic psyllium husk fiber with natural fruit flavor. 10s prep, 0 chalkiness, 0g added sugar.</p>
+
+          <div style="margin:16px 0 12px;">
+            <div style="display:flex; justify-content:space-between; font-size:12px; font-family:'Space Mono'; opacity:0.85;">
+              <span>FIBER CONTENT</span>
+              <span>100% DAILY BOOST</span>
+            </div>
+            <div class="fiber-meter-track">
+              <div class="fiber-meter-fill" id="productMeter" style="width:100%;"></div>
+            </div>
+          </div>
+
+          <div class="cc-stat-highlight">
+            <div>
+              <div class="cc-fiber-val" style="color:var(--lime);">5.0<span class="cc-fiber-unit">g</span></div>
+              <span style="font-size:11.5px; opacity:0.75; font-family:'Space Mono'; text-transform:uppercase;">Pure Soluble Fiber</span>
+            </div>
+            <span class="cc-pill-tag">15 Cals · 0g Sugar</span>
+          </div>
+        </div>
+
+        <!-- Food Comparison Card -->
+        <div class="compare-card target-food" id="targetFoodCard">
+          <div class="cc-badge" id="targetBadge">🥬 3.5 Cups Raw Spinach (105g)</div>
+          <h4 class="cc-title" id="targetTitle">Giant Bowl of Spinach</h4>
+          <p class="cc-sub" id="targetDesc">To get less than half this soluble fiber from greens, you would need to wash, chop, and chew through a mountain of raw spinach.</p>
+
+          <div style="margin:16px 0 12px;">
+            <div style="display:flex; justify-content:space-between; font-size:12px; font-family:'Space Mono'; color:var(--ink-soft);">
+              <span>FIBER DENSITY</span>
+              <span id="targetPercent">48% of Fizzy Fiber</span>
+            </div>
+            <div class="fiber-meter-track">
+              <div class="fiber-meter-fill" id="targetMeter" style="width:48%;"></div>
+            </div>
+          </div>
+
+          <div class="cc-stat-highlight">
+            <div>
+              <div class="cc-fiber-val" id="targetVal" style="color:var(--ink);">2.4<span class="cc-fiber-unit">g</span></div>
+              <span style="font-size:11.5px; color:var(--ink-soft); font-family:'Space Mono'; text-transform:uppercase;" id="targetUnitLabel">Total Dietary Fiber</span>
+            </div>
+            <span class="cc-pill-tag" id="targetCals">24 Cals · 15m Chewing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Comparison Matrix -->
+      <div class="compare-quick-row">
+        <div class="quick-comp-item" onclick="selectFood('spinach')">
+          <span class="quick-comp-icon">🥬</span>
+          <h4>3.5 Cups Spinach</h4>
+          <p>Fizzy Fiber delivers <strong>2.1x more fiber</strong> than a massive salad bowl.</p>
+        </div>
+        <div class="quick-comp-item" onclick="selectFood('apples')">
+          <span class="quick-comp-icon">🍎</span>
+          <h4>2 Whole Apples</h4>
+          <p>Get the fiber of 2 whole apples with <strong>0g fructose sugar spike</strong>.</p>
+        </div>
+        <div class="quick-comp-item" onclick="selectFood('broccoli')">
+          <span class="quick-comp-icon">🥦</span>
+          <h4>2.5 Cups Broccoli</h4>
+          <p>Equal fiber in <strong>1 sparkling drink</strong> without cooking or sulfur bloating.</p>
+        </div>
+        <div class="quick-comp-item" onclick="selectFood('oats')">
+          <span class="quick-comp-icon">🥣</span>
+          <h4>2.5 Bowls Oatmeal</h4>
+          <p>All the soluble beta-glucan perks in <strong>15 cals vs 380+ carbs</strong>.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="bene-grid">
       <div class="bene-card reveal">
         <div class="bene-ico" style="background:linear-gradient(140deg,#E0004D,#963101);"><svg viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="14" stroke="rgba(255,255,255,.3)" stroke-width="4"/><circle class="ico-ring" cx="18" cy="18" r="14" stroke="#fff" stroke-width="4" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg></div>
@@ -1459,6 +1712,106 @@
   }, { threshold:0.4 });
   const statRowEl = document.querySelector('.stat-row');
   if(statRowEl) statIO.observe(statRowEl);
+
+  // ---- Food Fiber Comparison Interactive Switcher ----
+  const foodData = {
+    spinach: {
+      badge: '🥬 3.5 Cups Raw Spinach (105g)',
+      title: 'Giant Bowl of Spinach',
+      desc: 'To get less than half this soluble fiber from greens, you would need to wash, chop, and chew through a mountain of raw spinach.',
+      fiberVal: '2.4',
+      percent: 48,
+      percentText: '48% of Fizzy Fiber',
+      cals: '24 Cals · 15m Chewing',
+      color: '#7E9E02'
+    },
+    apples: {
+      badge: '🍎 2 Whole Medium Apples',
+      title: 'Two Whole Crisp Apples',
+      desc: 'Provides roughly 4.8g of mixed fiber, but comes packed with 38g of fruit sugar (fructose) and takes heavy chewing.',
+      fiberVal: '4.8',
+      percent: 96,
+      percentText: '96% of Fizzy Fiber',
+      cals: '190 Cals · 38g Sugar',
+      color: '#D4033F'
+    },
+    broccoli: {
+      badge: '🥦 2.5 Cups Steamed Broccoli',
+      title: 'Large Plate of Broccoli',
+      desc: 'Offers 5g of total fiber, but requires cooking, seasoning, and often causes uncomfortable gas/sulfur bloating.',
+      fiberVal: '5.0',
+      percent: 100,
+      percentText: '100% of Fizzy Fiber',
+      cals: '78 Cals · Gas & Bloat',
+      color: '#8FAE1C'
+    },
+    oats: {
+      badge: '🥣 2.5 Bowls Cooked Oatmeal',
+      title: 'Multiple Bowls of Oatmeal',
+      desc: 'Contains 5g of soluble fiber, but loads your body with 380+ calories and 68g of carbohydrates early in the morning.',
+      fiberVal: '5.0',
+      percent: 100,
+      percentText: '100% of Fizzy Fiber',
+      cals: '380 Cals · 68g Carbs',
+      color: '#B78F4C'
+    },
+    carrots: {
+      badge: '🥕 4 Medium Raw Carrots',
+      title: 'Four Whole Raw Carrots',
+      desc: 'Gives 4.8g of rough insoluble fiber that is tough on sensitive digestive tracts and requires tedious crunching.',
+      fiberVal: '4.8',
+      percent: 96,
+      percentText: '96% of Fizzy Fiber',
+      cals: '100 Cals · Tough Digestion',
+      color: '#FFA833'
+    }
+  };
+
+  function selectFood(foodKey){
+    const data = foodData[foodKey];
+    if(!data) return;
+
+    document.querySelectorAll('.compare-tab').forEach(tab=>{
+      tab.classList.toggle('active', tab.dataset.food === foodKey);
+    });
+
+    const card = document.getElementById('targetFoodCard');
+    if(!card) return;
+
+    card.style.opacity = '0.35';
+    card.style.transform = 'scale(0.98)';
+
+    setTimeout(()=>{
+      const targetBadge = document.getElementById('targetBadge');
+      const targetTitle = document.getElementById('targetTitle');
+      const targetDesc = document.getElementById('targetDesc');
+      const targetVal = document.getElementById('targetVal');
+      const targetPercent = document.getElementById('targetPercent');
+      const targetCals = document.getElementById('targetCals');
+      const targetMeter = document.getElementById('targetMeter');
+
+      if(targetBadge) targetBadge.textContent = data.badge;
+      if(targetTitle) targetTitle.textContent = data.title;
+      if(targetDesc) targetDesc.textContent = data.desc;
+      if(targetVal) targetVal.innerHTML = data.fiberVal + '<span class="cc-fiber-unit">g</span>';
+      if(targetPercent) targetPercent.textContent = data.percentText;
+      if(targetCals) targetCals.textContent = data.cals;
+
+      if(targetMeter){
+        targetMeter.style.width = data.percent + '%';
+        targetMeter.style.background = data.color;
+      }
+
+      card.style.opacity = '1';
+      card.style.transform = 'scale(1)';
+    }, 120);
+  }
+
+  document.querySelectorAll('.compare-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      selectFood(tab.dataset.food);
+    });
+  });
 </script>
 
 </body>
